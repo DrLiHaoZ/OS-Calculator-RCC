@@ -20,7 +20,11 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
 {
     obj[method](effect, {color:color}, speed);
 }
-		var a = [1,2,3];
+		
+		
+function fuckyou(){
+	alert("fuckyou");
+}
     </script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,35 +32,125 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		
   </head>
   <body style="padding-top: 70px">
   <div class="container" >
   
-   
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-success">
-        <div class="btn-group" role="group">
+  <div class="row">
+    <div class="col-md-9">
+    	
+   	  <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Age</span></div>
+    	  <div class="col-md-10"><input type="text" class="form-control" placeholder="please input the age of patients"></div>
+  	  </div>
+  	  
+  	  <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Marital Status</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" onclick = "fuckyou()">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default">Active Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default">Active Button</button>
+          
+        </div></div>
+  	  </div>
+  	  
+  	    <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Race</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
           <button type="button" class="btn btn-default" value="1">Disabled Button</button>
           <button type="button" class="btn btn-default">Disabled Button</button>
           <button type="button" class="btn btn-default">Active Button</button>
-          
-        </div>
-     </li>
-	</ul>  
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-success">
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">Disabled Button</button>
+        </div></div>
+  	  </div>
+  	  
+  	    <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Histology</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
           <button type="button" class="btn btn-default">Disabled Button</button>
           <button type="button" class="btn btn-default">Active Button</button>
-          
-        </div>
-     </li>
-	</ul>
-    
-   
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default">Active Button</button>
+          <button type="button" class="btn btn-default">Active Button</button>
+        </div></div>
+  	  </div>
+  	  
+  	  <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Grade</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default">Active Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default">Active Button</button>
+        </div></div>
+  	  </div>
+  	  
+  	   <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Tumor Size</span></div>
+    	  <div class="col-md-10"><input type="text" class="form-control" placeholder="please input the age of patients"></div>
+  	  </div>
+  	  
+  	   <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Node Involovement</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+        </div></div>
+  	  </div>
+  	  
+  	  <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Metastasis</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+        </div></div>
+  	  </div>
+  	  
+  	  <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Surgery</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+        </div></div>
+  	  </div>
+ 		 <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Radiation</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+        </div></div>
+  	  </div>
+ 	    
+  	    <div class="row">
+    	  <div class="col-md-2"><span class="input-group-addon">Chemotherapy</span></div>
+    	  <div class="col-md-10"><div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+          <button type="button" class="btn btn-default" value="1">Disabled Button</button>
+          <button type="button" class="btn btn-default">Disabled Button</button>
+        </div></div>
+  	  </div>
+    </div>
+    <div class="col-md-3">
+      <div class="well well-lg">
+      		
+      		The result is shown here.
       
+      </div>
+    </div>
+
   </div>
+</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
   <script src="js/jquery-1.11.3.min.js"></script> <!-- Include all compiled plugins (below), or include individual files as needed --> 
   <script src="js/bootstrap.js"></script>
