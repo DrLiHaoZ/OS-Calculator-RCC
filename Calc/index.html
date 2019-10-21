@@ -6,11 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>test</title>
     <!-- Bootstrap -->
-	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
 	<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
 	<link href="jQueryAssets/jquery.ui.slider.min.css" rel="stylesheet" type="text/css">
 	<link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
+	<!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+	<link href="css/bootstrap-3.3.7.css" rel="stylesheet" type="text/css">
 	<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
 	<script src="jQueryAssets/jquery.ui-1.10.4.slider.min.js"></script>
 	<script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
@@ -33,27 +34,30 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
   <body style="padding-top: 70px">
   <div class="container" >
   
+
+  
   <div class="row">
     <div class="col-md-9">
     	
    	  <div class="row">
-    	  <div class="col-md-2"><span class="input-group-addon">Age</span></div>
-    	  <div class="col-md-10"><input type="text" class="form-control" placeholder="please input the age of patients"></div>
+    	  <div class="col-md-2"><span class="input-group-addon" >Age</span></div>
+    	  <div class="col-md-10"><input type="text" class="form-control" placeholder="please input the age of patients" id = "age"  onkeyup="value=value.replace(/[^\d\.]/g,'')"></div>
   	  </div>
   	  
-  	  <div class="row">
-    	  <div class="col-md-2"><span class="input-group-addon">Marital Status</span></div>
-    	  <div class="col-md-10"><div class="btn-group" role="group">
-          	<div class="col-md-2"><button type="button" class="btn btn-default btn-primary">Married</button></div>
-          	<div class="col-md-2"> <button type="button" class="btn btn-default btn-primary">Single</button></div>
-          	<div class="col-md-2"><button type="button" class="btn btn-default btn-primary">Divorced</button></div>
-          	<div class="col-md-2"><button type="button" class="btn btn-default btn-primary">Widowed</button></div>
-          	<div class="col-md-2"><button type="button" class="btn btn-default btn-primary">Unknown</button></div>
-            
+      
+<div class="row">
+   	    <div class="col-md-2"><span class="input-group-addon">Marital Status</span></div>
+   	    <div class="col-md-10"><div class="btn-group" role="group">
+            <button type="button" class="btn btn-default btn-primary ">Married</button>
+         	<button type="button" class="btn btn-default btn-primary ">Single</button>
+         	<button type="button" class="btn btn-default btn-primary ">Divorced</button>
+         	<button type="button" class="btn btn-default btn-primary ">Widowed</button>
+         	<button type="button" class="btn btn-default btn-primary ">Unknown</button>
         </div></div>
   	  </div>
+
   	  
-  	    <div class="row">
+      <div class="row">
     	  <div class="col-md-2"><span class="input-group-addon">Race</span></div>
     	  <div class="col-md-10"><div class="btn-group" role="group">
           <button type="button" class="btn btn-default btn-primary">White</button>
@@ -87,7 +91,7 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
   	  
   	   <div class="row">
     	  <div class="col-md-2"><span class="input-group-addon">Tumor Size</span></div>
-    	  <div class="col-md-10"><input type="text" class="form-control" placeholder="please input the age of patients"></div>
+    	  <div class="col-md-10"><input type="text" class="form-control" placeholder="please input the age of patients"  onkeyup="value=value.replace(/[^\d\.]/g,'')" id = "tumorsize"></div>
   	  </div>
   	  
   	   <div class="row">
@@ -137,7 +141,7 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
   	  </div>
     </div>
     <div class="col-md-3">
-      <div class="well well-lg">
+      <div class="well well-lg" id = "result">
       		
       		The result is shown here.
       
@@ -145,25 +149,34 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
     </div>
 
   </div>
-</div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">
+      <button type="button" id = "submission" class="btn btn-success">Submit</button></div>
+    
+    <div class="col-md-4"></div>
+  </div>
+  </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
   <script src="js/jquery-1.11.3.min.js"></script> <!-- Include all compiled plugins (below), or include individual files as needed --> 
-  <script src="js/bootstrap.js"></script>
-  <script type="text/javascript">
+  <!-- <script src="js/bootstrap.js"></script> -->
+  <script src="js/bootstrap-3.3.7.js"></script>
+<script type="text/javascript">
 $(function() {
-	$( "button" ).click(function(){
+	$( "button" ).not("#submission").click(function(){
 		$(this).parent().children().attr('class','btn btn-default btn-primary');
 		$(this).attr('class','btn btn-default btn-primary active');
-		
-		//$( ".btn-group" ).addClass("active");
-		//$(this).addClass("disable");
-		
 	}); 
-
-
+	$("#submission").click(function(){
+		
+		$("#result").text(  parseFloat($("#age").val()) + parseFloat($("#tumorsize").val()) ); 
+	});
 
 });
+	function check(){
 	
+	}
   </script>
 
 </body>
