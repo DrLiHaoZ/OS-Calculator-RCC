@@ -82,7 +82,7 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
     	  <div class="col-md-2"><span class="input-group-addon">Grade</span></div>
     	  <div class="col-md-10"><div class="btn-group" role="group">
           <button type="button" class="btn btn-default btn-primary" value="0">I</button>
-          <button type="button" class="btn btn-default btn-primary" value="16">II</button>
+          <button type="button" class="btn btn-default btn-primary" value="6">II</button>
           <button type="button" class="btn btn-default btn-primary" value="23">III</button>
           <button type="button" class="btn btn-default btn-primary" value="41">IV</button>
           <button type="button" class="btn btn-default btn-primary" value="21">Unknown</button>
@@ -194,8 +194,15 @@ $(function() {
 		items = document.getElementsByClassName("btn btn-default btn-primary active");
 		for (var i = 0;i<items.length;i++){
 			total_score += parseInt(items[i].value);
+			console.log(items[i].innerHTML+":"+items[i].value);
 		}
-		total_score += parseFloat($("#age").val())*0.9126-0.1923 + parseFloat($("#tumorsize").val()*1.9473+0.1143);
+		
+		var age_socre = parseFloat($("#age").val())*0.9126-0.1923;
+		var tmsz_score = parseFloat($("#tumorsize").val())*1.9473+0.1143;
+		total_score = total_score + age_socre + tmsz_score;
+		
+		console.log('AGE'+':'+ age_socre);
+		console.log('TUMORSIZE'+':'+ tmsz_score);
 		return total_score;
 	}
 	
