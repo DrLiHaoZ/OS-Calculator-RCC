@@ -97,11 +97,11 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
   	   <div class="row">
     	  <div class="col-md-2"><span class="input-group-addon">Node Involovement</span></div>
     	  <div class="col-md-10"><div class="btn-group" role="group">
-          <button type="button" class="btn btn-default btn-primary" value="0">Yes</button>
-          <button type="button" class="btn btn-default btn-primary" value="24">No</button>
+          <button type="button" class="btn btn-default btn-primary" value="24">Yes</button>
+          <button type="button" class="btn btn-default btn-primary" value="0">No</button>
         </div></div>
   	  </div>
-  	  
+  	    
   	  <div class="row">
     	  <div class="col-md-2"><span class="input-group-addon">Metastasis</span></div>
     	  <div class="col-md-10"><div class="btn-group" role="group">
@@ -141,11 +141,17 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
   	  </div>
     </div>
     <div class="col-md-3">
-      <div class="well well-lg" id = "result">
-      		
-      		The result is shown here.
       
-      </div>
+   		
+     		  <div class="panel panel-default panel-info" style="display: none" id = "show">
+      		  <div class="panel-heading">
+      		    <h3 class="panel-title">RESULTS</h3>
+	      </div>
+     		  <div class="panel-body">Total Score:<span id = "ts"></span></div>
+      		  <div class="panel-body">1-year OS:<span id = "1year"></span></div>
+      		  <div class="panel-footer">3-year OS:<span id = "3year"></span></div>
+	    </div>
+      
     </div>
 
   </div>
@@ -171,10 +177,18 @@ $(function() {
 	}); 
 	//提交函数
 	$("#submission").click(function(){
-		
 		//$("#result").text(  parseFloat($("#age").val()) + parseFloat($("#tumorsize").val()) ); 
 		total_score = total();
-		$("#result").text(total_score);
+		surv_1 = OS1(total_score);
+		surv_3 = OS3(total_score);
+		//$("#result").text(total_score+" 1year OS:" + surv_1 + ' 3year OS:' + surv_3);
+		$("#ts").text(total_score);
+		$("#1year").text(surv_1);
+		$("#3year").text(surv_3);
+		
+		$("#show").fadeIn(1000);
+		
+		
 	});
 
 	function temp_test(){
@@ -205,7 +219,18 @@ $(function() {
 		console.log('TUMORSIZE'+':'+ tmsz_score);
 		return total_score;
 	}
-	
+	function OS1(ts){
+		var beta0 = 7.87909;
+		var beta1 = -0.030177;
+		var OS = Math.exp(beta0 + beta1 * ts) / (1 + Math.exp(beta0 + beta1 * ts));
+		return OS;
+	}
+	function OS3(ts){
+		var beta0 = 5.71608;
+		var beta1 = -0.030094;
+		var OS = Math.exp(beta0 + beta1 * ts) / (1 + Math.exp(beta0 + beta1 * ts));
+		return OS;
+	}
 });
   </script>
 
