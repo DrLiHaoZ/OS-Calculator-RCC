@@ -183,8 +183,8 @@ $(function() {
 		surv_3 = OS3(total_score);
 		//$("#result").text(total_score+" 1year OS:" + surv_1 + ' 3year OS:' + surv_3);
 		$("#ts").text(total_score);
-		$("#1year").text(surv_1);
-		$("#3year").text(surv_3);
+		$("#1year").text(surv_1.toFixed(2));
+		$("#3year").text(surv_3.toFixed(2));
 		
 		$("#show").fadeIn(1000);
 		
