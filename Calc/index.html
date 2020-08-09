@@ -31,7 +31,7 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
 		<![endif]-->
 		
   </head>
- 
+ <body>
   <div class="container" >
   
 	  
@@ -44,7 +44,7 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
 	     <!-- Collect the nav links, forms, and other content for toggling -->
 	     <div class="collapse navbar-collapse" id="defaultNavbar1">
 	       <ul class="nav navbar-nav">
-	         <li class="active"><a href="https://github.com/lihaojack/OS-Calculator-RCC">Source<span class="sr-only">(current)</span></a></li>
+	         <li class="active"><a href="https://github.com/lihaojack/OS-Calculator-RCC">Source Code<span class="sr-only">(current)</span></a></li>
 	         
            </ul>
 	  
@@ -167,9 +167,10 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
       		  <div class="panel-heading">
       		    <h3 class="panel-title">RESULTS</h3>
 	      </div>
-     		  <div class="panel-body">Total Score:<span id = "ts"></span></div>
-      		  <div class="panel-body">1-year OS:<span id = "1year"></span></div>
-      		  <div class="panel-footer">3-year OS:<span id = "3year"></span></div>
+			  <div class="panel-body"><span id = "alert"></span></div>
+     		  <div class="panel-body"><span id = "ts"></span></div>
+      		  <div class="panel-body"><span id = "1year"></span></div>
+      		  <div class="panel-body"><span id = "3year"></span></div>
 	    </div>
       
     </div>
@@ -179,9 +180,10 @@ function MM_DW_effectHighlight(obj,method,effect,color,speed)
     <div class="col-md-4"></div>
     
     <div class="col-md-4">
-      <button type="button" id = "submission" class="btn btn-success">Submit</button></div>
-    
+      <button type="button" id = "submission" class="btn btn-success">Submit</button></div>  
+	  
     <div class="col-md-4"></div>
+		
   </div>
   </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
@@ -202,12 +204,19 @@ $(function() {
 		surv_1 = OS1(total_score);
 		surv_3 = OS3(total_score);
 		//$("#result").text(total_score+" 1year OS:" + surv_1 + ' 3year OS:' + surv_3);
-		$("#ts").text(total_score);
-		$("#1year").text(surv_1.toFixed(2));
-		$("#3year").text(surv_3.toFixed(2));
-		
-		$("#show").fadeIn(1000);
-		
+		if (isNaN(total_score)){
+			$("#ts").text("");
+			$("#1year").text("");
+			$("#3year").text("");
+			$("#alert").text("Incomplete information inputed");
+			$("#show").fadeIn(1000);
+		}else{
+			$("#alert").text("");
+			$("#ts").text("Total Score:" + total_score);
+			$("#1year").text("1-year OS:" + surv_1.toFixed(2));
+			$("#3year").text("3-year OS:" + surv_3.toFixed(2));
+			$("#show").fadeIn(1000);
+		}
 		
 	});
 
@@ -237,6 +246,9 @@ $(function() {
 		
 		console.log('AGE'+':'+ age_socre);
 		console.log('TUMORSIZE'+':'+ tmsz_score);
+		if (items.length != 9){
+			total_score = NaN
+		}
 		return total_score;
 	}
 	function OS1(ts){
